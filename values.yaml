@@ -80,6 +80,11 @@ service:
   selector:
     app: example-app
 
+# ServiceAccount settings
+serviceAccount:
+  create: true
+  name: ""
+
 # Ingress settings
 ingress:
   name: example-ingress

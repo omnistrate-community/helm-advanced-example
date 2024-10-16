@@ -3,7 +3,7 @@ entries:
   ecommerce-analytics:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-10-16T10:01:15.53052381-07:00"
+    created: "2024-10-16T11:40:44.527299348-07:00"
     dependencies:
     - name: kafka
       repository: https://charts.bitnami.com/bitnami
@@ -22,12 +22,39 @@ entries:
       version: 2.16.7
     description: An umbrella chart for e-commerce website analytics pipeline using
       Bitnami and open-source charts
-    digest: a7c8704b7d2599ad8dcebff6d2c61ebd4b35fd89aeb8d05f8f2369065b65622f
+    digest: 6d4768cc5c1f62d0cacac1dc491abc3d133a5e778fe3ea456bec5a5211a761ad
+    name: ecommerce-analytics
+    type: application
+    urls:
+    - ecommerce-analytics-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-10-16T11:40:44.471763699-07:00"
+    dependencies:
+    - name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: 30.1.5
+    - name: elasticsearch
+      repository: https://charts.bitnami.com/bitnami
+      version: 21.3.21
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.0.3
+    - name: fluentd
+      repository: https://charts.bitnami.com/bitnami
+      version: 6.5.13
+    - name: metabase
+      repository: https://pmint93.github.io/helm-charts
+      version: 2.16.7
+    description: An umbrella chart for e-commerce website analytics pipeline using
+      Bitnami and open-source charts
+    digest: 250ac3cc0feb93a4bdfb3812edf72e7f209b77c3f6ab4dcf61d7b407bf786a15
     name: ecommerce-analytics
     type: application
     urls:
     - ecommerce-analytics-0.1.0.tgz
-    version: 0.1.1
+    version: 0.1.0
   elasticsearch:
   - annotations:
       category: Analytics
@@ -41,7 +68,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 8.15.2
-    created: "2024-10-16T10:01:15.538755873-07:00"
+    created: "2024-10-16T11:40:44.534014944-07:00"
     dependencies:
     - condition: global.kibanaEnabled
       name: kibana
@@ -78,7 +105,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 1.17.1
-    created: "2024-10-16T10:01:15.541628046-07:00"
+    created: "2024-10-16T11:40:44.536874473-07:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -120,7 +147,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 3.8.0
-    created: "2024-10-16T10:01:15.548932792-07:00"
+    created: "2024-10-16T11:40:44.543285967-07:00"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -155,7 +182,7 @@ entries:
   metabase:
   - apiVersion: v1
     appVersion: v0.50.6
-    created: "2024-10-16T10:01:15.549599417-07:00"
+    created: "2024-10-16T11:40:44.543956827-07:00"
     description: The easy, open source way for everyone in your company to ask questions
       and learn from data.
     digest: d454c930559b6c21633999b5e62f5eb4aac51e173651c065baf9b713a8552e19
@@ -183,7 +210,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 17.0.0
-    created: "2024-10-16T10:01:15.553076677-07:00"
+    created: "2024-10-16T11:40:44.547337198-07:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -212,4 +239,4 @@ entries:
     urls:
     - charts/postgresql-16.0.3.tgz
     version: 16.0.3
-generated: "2024-10-16T10:01:15.506757373-07:00"
+generated: "2024-10-16T11:40:44.426004433-07:00"

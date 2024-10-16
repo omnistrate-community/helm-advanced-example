@@ -2,7 +2,7 @@ apiVersion: v2
 name: ecommerce-analytics
 description: An umbrella chart for e-commerce website analytics pipeline using Bitnami and open-source charts
 type: application
-version: 0.1.0
+version: 0.1.2
 appVersion: "1.0.0"
 dependencies:
   - name: kafka
