@@ -35,3 +35,80 @@ fluentd:
 
 metabase:
   replicaCount: 3
+
+# Global settings
+global:
+  namespace: default
+
+# ConfigMap settings
+configMap:
+  name: example-config
+  data:
+    DB_URL: "jdbc:mysql://mysql-service:3306/mydb"
+    REDIS_URL: "redis-service:6379"
+
+# Deployment settings
+deployment:
+  name: example-deployment
+  replicas: 3
+  labels:
+    app: example-app
+  containers:
+    - name: example-container
+      image: example-image:latest
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 8080
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 500m
+          memory: 512Mi
+      envFrom:
+        - configMapRef:
+            name: example-config
+
+# Service settings
+service:
+  name: example-service
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: example-app
+
+# Ingress settings
+ingress:
+  name: example-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - path: /api(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: example-service
+                port: 
+                  number: 80
+
+# HorizontalPodAutoscaler settings
+hpa:
+  name: example-hpa
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: example-deployment
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 50
