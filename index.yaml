@@ -27,7 +27,7 @@ entries:
     type: application
     urls:
     - ecommerce-analytics-0.1.0.tgz
-    version: 0.1.0
+    version: 0.1.1
   elasticsearch:
   - annotations:
       category: Analytics
