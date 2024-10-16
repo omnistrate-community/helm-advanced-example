@@ -1,0 +1,215 @@
+apiVersion: v1
+entries:
+  ecommerce-analytics:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-10-16T10:01:15.53052381-07:00"
+    dependencies:
+    - name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: 30.1.5
+    - name: elasticsearch
+      repository: https://charts.bitnami.com/bitnami
+      version: 21.3.21
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.0.3
+    - name: fluentd
+      repository: https://charts.bitnami.com/bitnami
+      version: 6.5.13
+    - name: metabase
+      repository: https://pmint93.github.io/helm-charts
+      version: 2.16.7
+    description: An umbrella chart for e-commerce website analytics pipeline using
+      Bitnami and open-source charts
+    digest: a7c8704b7d2599ad8dcebff6d2c61ebd4b35fd89aeb8d05f8f2369065b65622f
+    name: ecommerce-analytics
+    type: application
+    urls:
+    - ecommerce-analytics-0.1.0.tgz
+    version: 0.1.0
+  elasticsearch:
+  - annotations:
+      category: Analytics
+      images: |
+        - name: elasticsearch
+          image: docker.io/bitnami/elasticsearch:8.15.2-debian-12-r4
+        - name: elasticsearch-exporter
+          image: docker.io/bitnami/elasticsearch-exporter:1.8.0-debian-12-r1
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:12-debian-12-r31
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 8.15.2
+    created: "2024-10-16T10:01:15.538755873-07:00"
+    dependencies:
+    - condition: global.kibanaEnabled
+      name: kibana
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 11.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Elasticsearch is a distributed search and analytics engine. It is
+      used for web search, log monitoring, and real-time analytics. Ideal for Big
+      Data applications.
+    digest: 2a1f2c4901328b5304846bd488ba60dfbef440a642a0178ab7eca561f6db58d5
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/elasticsearch/img/elasticsearch-stack-220x234.png
+    keywords:
+    - elasticsearch
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: elasticsearch
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/elasticsearch
+    urls:
+    - charts/elasticsearch-21.3.21.tgz
+    version: 21.3.21
+  fluentd:
+  - annotations:
+      category: Analytics
+      images: |
+        - name: fluentd
+          image: docker.io/bitnami/fluentd:1.17.1-debian-12-r2
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 1.17.1
+    created: "2024-10-16T10:01:15.541628046-07:00"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Fluentd collects events from various data sources and writes them
+      to files, RDBMS, NoSQL, IaaS, SaaS, Hadoop and so on.
+    digest: 94cf6691411afce5256338040477a6ff5befdde6b2a0d3ba155e880cc7e7f711
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/fluentd/img/fluentd-stack-220x234.png
+    keywords:
+    - fluentd
+    - logging
+    - logs
+    - data
+    - collector
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: fluentd
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/fluentd
+    urls:
+    - charts/fluentd-6.5.13.tgz
+    version: 6.5.13
+  kafka:
+  - annotations:
+      category: Infrastructure
+      images: |
+        - name: jmx-exporter
+          image: docker.io/bitnami/jmx-exporter:1.0.1-debian-12-r6
+        - name: kafka
+          image: docker.io/bitnami/kafka:3.8.0-debian-12-r5
+        - name: kubectl
+          image: docker.io/bitnami/kubectl:1.31.1-debian-12-r2
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:12-debian-12-r30
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 3.8.0
+    created: "2024-10-16T10:01:15.548932792-07:00"
+    dependencies:
+    - condition: zookeeper.enabled
+      name: zookeeper
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 13.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Apache Kafka is a distributed streaming platform designed to build
+      real-time pipelines and can be used as a message broker or as a replacement
+      for a log aggregation solution for big data applications.
+    digest: 47e330aca5407aa1c00275f881349e5a59dc820d9771bb30eb16c8e29357f8e5
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/kafka/img/kafka-stack-220x234.png
+    keywords:
+    - kafka
+    - zookeeper
+    - streaming
+    - producer
+    - consumer
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: kafka
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/kafka
+    urls:
+    - charts/kafka-30.1.5.tgz
+    version: 30.1.5
+  metabase:
+  - apiVersion: v1
+    appVersion: v0.50.6
+    created: "2024-10-16T10:01:15.549599417-07:00"
+    description: The easy, open source way for everyone in your company to ask questions
+      and learn from data.
+    digest: d454c930559b6c21633999b5e62f5eb4aac51e173651c065baf9b713a8552e19
+    home: http://www.metabase.com/
+    icon: http://www.metabase.com/images/logo.svg
+    maintainers:
+    - email: phamminhthanh69@gmail.com
+      name: pmint93
+    name: metabase
+    sources:
+    - https://github.com/metabase/metabase
+    urls:
+    - charts/metabase-2.16.7.tgz
+    version: 2.16.7
+  postgresql:
+  - annotations:
+      category: Database
+      images: |
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:12-debian-12-r31
+        - name: postgres-exporter
+          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-12-r44
+        - name: postgresql
+          image: docker.io/bitnami/postgresql:17.0.0-debian-12-r3
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 17.0.0
+    created: "2024-10-16T10:01:15.553076677-07:00"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: PostgreSQL (Postgres) is an open source object-relational database
+      known for reliability and data integrity. ACID-compliant, it supports foreign
+      keys, joins, views, triggers and stored procedures.
+    digest: 4aa011eb0b15348ad3ecfdd05aaed2f443a765fdb3ef2d0958e49cb1a842d836
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-220x234.png
+    keywords:
+    - postgresql
+    - postgres
+    - database
+    - sql
+    - replication
+    - cluster
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: postgresql
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/postgresql
+    urls:
+    - charts/postgresql-16.0.3.tgz
+    version: 16.0.3
+generated: "2024-10-16T10:01:15.506757373-07:00"
