@@ -1,0 +1,22 @@
+apiVersion: v2
+name: ecommerce-analytics
+description: An umbrella chart for e-commerce website analytics pipeline using Bitnami and open-source charts
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+dependencies:
+  - name: kafka
+    version: 30.1.5
+    repository: https://charts.bitnami.com/bitnami
+  - name: elasticsearch
+    version: 21.3.21
+    repository: https://charts.bitnami.com/bitnami
+  - name: postgresql
+    version: 16.0.3
+    repository: https://charts.bitnami.com/bitnami
+  - name: fluentd
+    version: 6.5.13
+    repository: https://charts.bitnami.com/bitnami
+  - name: metabase
+    version: 2.16.7
+    repository: https://pmint93.github.io/helm-charts
